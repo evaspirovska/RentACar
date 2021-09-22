@@ -28,7 +28,7 @@ public class Money implements ValueObject {
         this.ammount = ammount;
     }
 
-    public static Money valueOd(Currency currency, double ammount) {
+    public static Money valueOf(Currency currency, double ammount) {
         return new Money(currency, ammount);
     }
 
