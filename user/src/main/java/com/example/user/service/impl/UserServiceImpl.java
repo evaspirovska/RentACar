@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByEmail(String email) {
+        return null;
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException
     {
         Optional<User> user = userRepository.findByEmail(s);
@@ -59,7 +64,6 @@ public class UserServiceImpl implements UserService {
         return new org.springframework.security.core.userdetails.User(user.get().getUsername(), user.get().getPassword(),
                 List.of(new GrantedAuthority[]{new SimpleGrantedAuthority("ROLE_USER")}));
     }
-
 
     @Override
     public UserId register(UserForm userForm)

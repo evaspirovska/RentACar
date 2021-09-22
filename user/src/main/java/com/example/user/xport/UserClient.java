@@ -1,85 +1,66 @@
 package com.example.user.xport;
 
-//import com.example.carmanagement.domain.valueobjects.User;
-//import com.example.carmanagement.domain.valueobjects.UserId;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
+import com.example.user.domain.model.User;
+import com.example.user.domain.model.UserId;
+import com.example.user.service.UserService;
+import com.example.user.service.forms.UserForm;
+import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
-//@Service
-//public class UserClient {
-//
-//    private final RestTemplate restTemplate;
-//    private final String serverUrl;
-//
-//    public UserClient(@Value("${app.car-management.url}") String serverUrl)
-//    {
-//        this.serverUrl = serverUrl;
-//        this.restTemplate = new RestTemplate();
-//        var requestFactory = new SimpleClientHttpRequestFactory();
-//        this.restTemplate.setRequestFactory(requestFactory);
-//    }
-//
-//    private UriComponentsBuilder uri()
-//    {
-//        return UriComponentsBuilder.fromUriString(this.serverUrl);
-//    }
-//
-//    public User findByEmail(String email)
-//    {
-//        try
-//        {
-//            return restTemplate.exchange(
-//                    uri().path("/api/users/mail/"+email).build().toUri(),
-//                    HttpMethod.GET, null,
-//                    new ParameterizedTypeReference<User>() {})
-//                    .getBody();
-//        }
-//        catch (Exception e)
-//        {
-//            return null;
-//        }
-//    }
-//
-//    public User findById(UserId id)
-//    {
-//        try
-//        {
-//            return restTemplate.exchange(
-//                    uri().path("/api/users/"+id.getId()).build().toUri(),
-//                    HttpMethod.GET, null,
-//                    new ParameterizedTypeReference<User>() {})
-//                    .getBody();
-//        }
-//        catch (Exception e)
-//        {
-//            return null;
-//        }
-//    }
-//
-//    public List<User> findAll()
-//    {
-//        try
-//        {
-//            return (List<User>) restTemplate.exchange(
-//                    uri().path("/api/users").build().toUri(),
-//                    HttpMethod.GET, null,
-//                    new ParameterizedTypeReference<Collection<User>>() {})
-//                    .getBody();
-//        }
-//        catch (Exception e)
-//        {
-//            return Collections.EMPTY_LIST;
-//        }
-//    }
-//
-//
-//}
+@RestController
+@RequestMapping("/api/user")
+@AllArgsConstructor
+public class UserClient {
+
+    private final UserService userService;
+
+    @GetMapping
+    public Collection<User> findAll()
+    {
+        return userService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public User findById(@PathVariable String id)
+    {
+        return userService.findById(new UserId(id));
+    }
+
+    @PostMapping
+    public ResponseEntity register(@RequestBody UserForm userForm)
+    {
+        UserId id;
+        try
+        {
+            id = userService.register(userForm);
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity.badRequest().body(e.getClass());
+        }
+        return ResponseEntity.ok().body(id);
+    }
+
+    @GetMapping("/name/{username}")
+    public User findByUsername(@PathVariable String username)
+    {
+        return (User) userService.loadUserByUsername(username);
+    }
+
+    @GetMapping("/mail/{email}")
+    public User findByEmail(@PathVariable String email)
+    {
+        return userService.findByEmail(email);
+    }
+
+    @PostMapping("/delete/{userId}")
+    public void delete(@PathVariable String id)
+    {
+        if(userService.findById(new UserId(id)) != null)
+            userService.deleteUser(UserId.of(id));
+    }
+
+}

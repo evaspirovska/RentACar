@@ -11,4 +11,6 @@ public interface CarService {
     Car findById(CarId carId);
     Car createCar(CarForm form);
     List<Car> getAll();
+    void deleteById(CarId carId);
+//    Car editCar(CarId carId, CarForm carForm);
 }

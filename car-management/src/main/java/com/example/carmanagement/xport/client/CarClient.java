@@ -1,8 +1,6 @@
 package com.example.carmanagement.xport.client;
 
 import com.example.carmanagement.domain.valueobjects.Car;
-import com.example.carmanagement.domain.valueobjects.User;
-import com.example.carmanagement.domain.valueobjects.UserId;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

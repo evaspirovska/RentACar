@@ -1,7 +1,7 @@
 package com.example.user.domain.model;
 
 import com.example.sharedkernel.domain.base.DomainObjectId;
-import lombok.NonNull;
+import org.springframework.lang.NonNull;
 
 public class UserId extends DomainObjectId {
 
@@ -11,5 +11,10 @@ public class UserId extends DomainObjectId {
 
     public UserId(String uuid) {
         super(uuid);
+    }
+
+    public static UserId of(String uuid) {
+        UserId u = new UserId(uuid);
+        return u;
     }
 }

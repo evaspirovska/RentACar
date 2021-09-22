@@ -35,4 +35,16 @@ public class CarServiceImpl implements CarService {
     public List<Car> getAll() {
         return carRepository.findAll();
     }
+
+    @Override
+    public void deleteById(CarId carId) {
+        carRepository.findById(carId).orElseThrow(CarNotFoundException::new);
+        carRepository.deleteById(carId);
+    }
+
+//    @Override
+//    public Car editCar(CarId carId, CarForm carForm) {
+//        Car c = carRepository.findById(carId).orElseThrow(CarNotFoundException::new);
+//        return c;
+//    }
 }
