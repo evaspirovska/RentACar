@@ -6,10 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shared-kernel" />
         <module name="car-management" />
+      </profile>
+      <profile name="Annotation profile for RentACar" enabled="true">
+        <sourceOutputDir name="../../car/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../car/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="car" />
+      </profile>
+      <profile name="Annotation profile for user" enabled="true">
+        <sourceOutputDir name="../../user/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../user/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="user" />
+      </profile>
+      <profile name="Annotation profile for shared-kernel" enabled="true">
+        <sourceOutputDir name="../../shared-kernel/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../shared-kernel/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shared-kernel" />
       </profile>
     </annotationProcessing>
   </component>
