@@ -52,8 +52,8 @@ class App extends Component {
         });
   }
 
-  addCar = (name, price, quantity, category, manufacturer) => {
-    CarService.addCar(name, price, quantity, category, manufacturer)
+  addCar = (name, description, price, location, carStatus) => {
+    CarService.addCar(name, description, price, location, carStatus)
         .then(() => {
           this.loadCars();
         });
@@ -68,8 +68,8 @@ class App extends Component {
         })
   }
 
-  editCar = (id, name, price, quantity, category, manufacturer) => {
-    CarService.editCar(id, name, price, quantity, category, manufacturer)
+  editCar = (id, name, description, price, location, carStatus) => {
+    CarService.editCar(id, name, description, price, location, carStatus)
         .then(() => {
           this.loadCars();
         });
@@ -82,8 +82,8 @@ class App extends Component {
         });
   }
 
-  addRent = (name, price, quantity, category, manufacturer) => {
-    CarService.addRent(name, price, quantity, category, manufacturer)
+  addRent = (name, carPrice, reservationPeriod, days, carId, userId, rentStatus) => {
+    CarService.addRent(name, carPrice, reservationPeriod, days, carId, userId, rentStatus)
         .then(() => {
           this.loadRents();
         });
