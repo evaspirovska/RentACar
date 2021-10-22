@@ -1,9 +1,8 @@
 package com.example.carmanagement.domain.valueobjects;
 
-import com.example.carmanagement.domain.valueobjects.CarId;
 import com.example.sharedkernel.domain.base.ValueObject;
-import com.example.sharedkernel.domain.financial.Currency;
-import com.example.sharedkernel.domain.financial.Money;
+import com.example.sharedkernel.domain.money.Currency;
+import com.example.sharedkernel.domain.money.Money;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 

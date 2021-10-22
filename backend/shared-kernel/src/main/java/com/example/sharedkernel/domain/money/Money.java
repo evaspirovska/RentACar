@@ -1,4 +1,4 @@
-package com.example.sharedkernel.domain.financial;
+package com.example.sharedkernel.domain.money;
 
 import com.example.sharedkernel.domain.base.ValueObject;
 import lombok.Getter;

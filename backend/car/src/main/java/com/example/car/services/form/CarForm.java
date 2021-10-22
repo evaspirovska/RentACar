@@ -1,8 +1,7 @@
 package com.example.car.services.form;
 
-import com.example.car.domain.models.CarId;
 import com.example.car.domain.valueobjects.CarStatus;
-import com.example.sharedkernel.domain.financial.Money;
+import com.example.sharedkernel.domain.money.Money;
 import lombok.Data;
 
 @Data

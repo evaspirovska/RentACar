@@ -2,8 +2,8 @@ package com.example.car.config;
 
 import com.example.car.domain.models.Car;
 import com.example.car.domain.repository.CarRepository;
-import com.example.sharedkernel.domain.financial.Currency;
-import com.example.sharedkernel.domain.financial.Money;
+import com.example.sharedkernel.domain.money.Currency;
+import com.example.sharedkernel.domain.money.Money;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

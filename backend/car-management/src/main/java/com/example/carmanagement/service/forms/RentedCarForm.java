@@ -1,9 +1,8 @@
 package com.example.carmanagement.service.forms;
 
 import com.example.carmanagement.domain.model.RentedCarId;
-import com.example.carmanagement.domain.valueobjects.Car;
 import com.example.carmanagement.domain.valueobjects.CarId;
-import com.example.sharedkernel.domain.financial.Currency;
+import com.example.sharedkernel.domain.money.Currency;
 import com.example.sharedkernel.domain.user.UserId;
 import lombok.Data;
 

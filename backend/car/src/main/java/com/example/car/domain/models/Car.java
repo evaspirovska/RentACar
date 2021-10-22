@@ -5,7 +5,7 @@ package com.example.car.domain.models;
 import com.example.car.domain.valueobjects.CarStatus;
 import com.example.car.services.form.CarForm;
 import com.example.sharedkernel.domain.base.AbstractEntity;
-import com.example.sharedkernel.domain.financial.Money;
+import com.example.sharedkernel.domain.money.Money;
 import lombok.Getter;
 
 import javax.persistence.*;
