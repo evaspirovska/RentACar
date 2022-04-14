@@ -54,12 +54,12 @@ public class Money implements ValueObject {
         return Objects.hash(currency, ammount);
     }
 
-    public Money substract(Money money) {
-
-        if(!currency.equals(money.currency))
-            throw new IllegalArgumentException("Different currencies!");
-        return new Money(currency, ammount - money.ammount);
-    }
+//    public Money substract(Money money) {
+//
+//        if(!currency.equals(money.currency))
+//            throw new IllegalArgumentException("Different currencies!");
+//        return new Money(currency, ammount - money.ammount);
+//    }
 
     public Money multiply(int m) {
         return new Money(currency, ammount * m);
